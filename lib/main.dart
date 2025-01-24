@@ -1,9 +1,13 @@
+import 'package:academy/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'Ui/chapter_screen.dart';
-import 'Ui/home_screen.dart';
+import 'Ui/home/home_screen.dart';
 import 'Ui/lecture_screen.dart';
 import 'Ui/login_screen.dart';
 import 'Ui/register_screen.dart';
+// used Packages: utils for responsive , fonts for amiri 
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +18,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(),
+    return  ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      // Use builder only if you need to use library outside ScreenUtilInit context
+      builder: (_ , child) {
+        return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          titleLarge: GoogleFonts.amiriQuran(color: AppColors.whiteColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleMedium: GoogleFonts.amiriQuran(color: AppColors.primaryColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleSmall: GoogleFonts.amiriQuran(color: AppColors.textColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+        ),
+        scaffoldBackgroundColor: AppColors.primaryBackgroundColor,
+        appBarTheme: AppBarTheme(
+          toolbarHeight: 70.sp,
+          backgroundColor: AppColors.textColor,centerTitle: true,
+          titleTextStyle:GoogleFonts.amiriQuran(color: AppColors.blackColor, fontSize: 24.sp, fontWeight: FontWeight.bold) ,
+          shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(24.r),
+      ),
+    ),
+        )
+      ),
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
@@ -24,6 +51,8 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => const LoginScreen(),
         RegisterScreen.routeName: (context) => const RegisterScreen(),
       },
+    );
+      }
     );
   }
 }
