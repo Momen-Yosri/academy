@@ -5,10 +5,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AdsSection extends StatelessWidget {
    AdsSection({super.key});
 final List<Widget> ads =[
-  Image.asset("assets/images/1.jpg"),
-  Image.asset("assets/images/2.jpg"),
-  Image.asset("assets/images/3.jpg"),
-  Image.asset("assets/images/4.jpg"),
+  ClipRRect(
+  borderRadius: BorderRadius.circular(20), // Image border
+  child: SizedBox.fromSize(
+    size: Size.fromRadius(320), // Image radius
+    child: Image.asset("assets/images/1.jpg", fit: BoxFit.fill),
+  ),
+),
+  ClipRRect(
+  borderRadius: BorderRadius.circular(20), // Image border
+  child: SizedBox.fromSize(
+    size: Size.fromRadius(320), // Image radius
+    child: Image.asset("assets/images/2.jpg", fit: BoxFit.fill),
+  ),
+),
+  ClipRRect(
+  borderRadius: BorderRadius.circular(20), // Image border
+  child: SizedBox.fromSize(
+    size: Size.fromRadius(320), // Image radius
+    child: Image.asset("assets/images/3.jpg", fit: BoxFit.fill),
+  ),
+),
+  ClipRRect(
+  borderRadius: BorderRadius.circular(20), // Image border
+  child: SizedBox.fromSize(
+    size: Size.fromRadius(320), // Image radius
+    child: Image.asset("assets/images/4.jpg", fit: BoxFit.fill),
+  ),
+),
+
   
 ];
 // width 
@@ -21,6 +46,7 @@ final List<Widget> ads =[
     autoPlayAnimationDuration: Duration(milliseconds: 800), // Transition speed
     autoPlayCurve: Curves.fastOutSlowIn, // Animation curve for transition
   enlargeCenterPage: true,
+
   ),
      
     );
