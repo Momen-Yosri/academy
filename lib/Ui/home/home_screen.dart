@@ -6,7 +6,13 @@ import 'widgets/ads_section.dart';
 
 class HomeScreen extends StatelessWidget {
     static const String routeName = 'home_screen';
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+  List<Map<String, String>> classData = [
+    {"name": "مؤمن يسري", "subject": "الفلسفة وعلم النفس"},
+    {"name": "مؤمن يسري", "subject": "الفلسفة وعلم النفس"},
+    {"name": "مؤمن يسري", "subject": "الفلسفة وعلم النفس"},
+    {"name": "مؤمن يسري", "subject": "الفلسفة وعلم النفس"},
+  ];
 
   @override
  Widget build(BuildContext context) {
@@ -16,62 +22,24 @@ class HomeScreen extends StatelessWidget {
       ),
       backgroundColor: Color(0xFFEAE0D5),
       body: Column(
-        children: [
-         
-          SizedBox(height: 16.h),
-          Container(child: AdsSection(),width: double.infinity,),
-          SizedBox(height: 20.h),
-          _buildTitle("الفصول الدراسية"),
-          SizedBox(height: 10.h),
-          _buildClassList(),
-          Spacer(),
-          _buildBottomNavigationBar(),
-        ],
+       children: [
+        SizedBox(height: 16.h),
+        Container(child: AdsSection(), width: double.infinity),
+        SizedBox(height: 20.h),
+        _buildTitle("الفصول الدراسية"),
+        SizedBox(height: 10.h),
+        Expanded(
+          child: _buildClassList(), // Wrapped in Expanded to take available space
+        ),
+        _buildBottomNavigationBar(),
+      ],
       ),
     );
   }
 
-  // Widget _buildHeader() {
-  //   return Container(
-  //     width: double.infinity,
-  //     padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),
-  //     decoration: BoxDecoration(
-  //       color: Color(0xFFD4913B),
-  //       borderRadius: BorderRadius.vertical(bottom: Radius.circular(20.r)),
-  //     ),
-  //     child: Center(
-  //       child: Text(
-  //         "الصف الاول الثانوي",
-  //         style: TextStyle(color: Colors.black, fontSize: 22.sp, fontWeight: FontWeight.bold),
-  //       ),
-  //     ),
-  //   );
-  // }
 
-  Widget _buildMainCard() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.all(16.w),
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(12.r),
-        ),
-        child: Column(
-          children: [
-            Icon(Icons.menu_book, color: Colors.amber, size: 50.w),
-            SizedBox(height: 10.h),
-            Text(
-              "حاليا بجميع السناتر\nكتاب الأول",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 16.sp),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+
+
 
   Widget _buildTitle(String text) {
     return Padding(
@@ -88,55 +56,70 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildClassList() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildClassCard(),
-          _buildClassCard(),
-        ],
+    padding: EdgeInsets.symmetric(horizontal: 16.w),
+    child: SizedBox(
+      height: 400.h, // Increased height to accommodate grid items
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // 2 items per row
+          crossAxisSpacing: 12.w, // Horizontal spacing between items
+          mainAxisSpacing: 12.h, // Vertical spacing between items
+          childAspectRatio: 0.7, // Adjust based on your card's dimensions
+        ),
+        scrollDirection: Axis.vertical, // Vertical scrolling (default)
+        itemCount: classData.length,
+        itemBuilder: (context, index) {
+          return _buildClassCard(
+            classData[index]["name"]!,
+            classData[index]["subject"]!,
+          );
+        },
       ),
-    );
+    ),
+  );
   }
 
-  Widget _buildClassCard() {
-    return Container(
-      width: 160.w,
-      padding: EdgeInsets.all(8.w),
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      child: Column(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8.r),
-            child: Image.asset(
-"assets/images/1.jpg",              width: 140.w,
-              height: 100.h,
-              fit: BoxFit.cover,
-            ),
+  Widget _buildClassCard(String name, String subject) {
+  return Container(
+    width: 160.w,
+    padding: EdgeInsets.all(8.w),
+    decoration: BoxDecoration(
+      color: Colors.black,
+      borderRadius: BorderRadius.circular(12.r),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(8.r),
+          child: Image.asset(
+            "assets/images/profile.jpg",
+            width: 140.w,
+            height: 100.h,
+            fit: BoxFit.cover,
           ),
-          SizedBox(height: 10.h),
-          Text(
-            "مؤمن يسري",
-            style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "الفلسفة وعلم النفس",
-            style: TextStyle(color: Colors.amber, fontSize: 14.sp),
-          ),
-        ],
-      ),
-    );
+        ),
+        SizedBox(height: 10.h),
+        Text(
+          name,
+          style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          subject,
+          style: TextStyle(color: Colors.amber, fontSize: 14.sp),
+        ),
+      ],
+    ),
+  );
   }
 
   Widget _buildBottomNavigationBar() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.h),
+      margin: EdgeInsets.only(bottom: 10.h,right: 8.w,left: 8.w),
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+        borderRadius: BorderRadius.all( Radius.circular(20.r)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
