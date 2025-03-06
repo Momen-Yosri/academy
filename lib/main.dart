@@ -27,15 +27,15 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
       theme: ThemeData(
         textTheme: TextTheme(
-          titleLarge: GoogleFonts.amiriQuran(color: AppColors.whiteColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
-          titleMedium: GoogleFonts.amiriQuran(color: AppColors.primaryColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
-          titleSmall: GoogleFonts.amiriQuran(color: AppColors.textColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleLarge: GoogleFonts.amiri(color: AppColors.whiteColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleMedium: GoogleFonts.amiri(color: AppColors.primaryColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleSmall: GoogleFonts.amiri(color: AppColors.textColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
         ),
         scaffoldBackgroundColor: AppColors.primaryBackgroundColor,
         appBarTheme: AppBarTheme(
           toolbarHeight: 50.sp,
           backgroundColor: AppColors.textColor,centerTitle: true,
-          titleTextStyle:GoogleFonts.amiriQuran(color: AppColors.blackColor, fontSize: 24.sp, fontWeight: FontWeight.bold) ,
+          titleTextStyle:GoogleFonts.amiri(color: AppColors.blackColor, fontSize: 24.sp, fontWeight: FontWeight.bold) ,
           shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         bottom: Radius.circular(24.r),
@@ -45,8 +45,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: ChapterScreen.routeName,
       routes: {
-        HomeScreen.routeName: (context) => const HomeScreen(),
-        ChapterScreen.routeName: (context) =>  ChapterScreen(),
+        HomeScreen.routeName: (context) =>  HomeScreen(),
+        ChapterScreen.routeName: (context) => const ChapterScreen(),
+
         LectureScreen.routeName: (context) => const LectureScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         RegisterScreen.routeName: (context) => const RegisterScreen(),
