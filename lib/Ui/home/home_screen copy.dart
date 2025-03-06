@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/ads_section.dart';
-
 class HomeScreen extends StatelessWidget {
     static const String routeName = 'home_screen';
   const HomeScreen({super.key});
@@ -19,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         children: [
          
           SizedBox(height: 16.h),
-          AdsSection(),
+          _buildMainCard(),
           SizedBox(height: 20.h),
           _buildTitle("الفصول الدراسية"),
           SizedBox(height: 10.h),
