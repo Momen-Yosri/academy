@@ -1,9 +1,10 @@
+import 'package:academy/widgets/cards_with_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/ads_section.dart';
 
+import 'widgets/ads_section.dart';
 class HomeScreen extends StatelessWidget {
     static const String routeName = 'home_screen';
    HomeScreen({super.key});
@@ -129,6 +130,7 @@ class HomeScreen extends StatelessWidget {
           _buildNavItem(Icons.notifications, "الاشعارات"),
           _buildNavItem(Icons.home, "الرئيسية", isActive: true),
         ],
+
       ),
     );
   }

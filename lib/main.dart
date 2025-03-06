@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: AppColors.primaryBackgroundColor,
         appBarTheme: AppBarTheme(
-          toolbarHeight: 70.sp,
+          toolbarHeight: 50.sp,
           backgroundColor: AppColors.textColor,centerTitle: true,
           titleTextStyle:GoogleFonts.amiri(color: AppColors.blackColor, fontSize: 24.sp, fontWeight: FontWeight.bold) ,
           shape: RoundedRectangleBorder(
@@ -43,10 +43,11 @@ class MyApp extends StatelessWidget {
     ),
         )
       ),
-      initialRoute: HomeScreen.routeName,
+      initialRoute: ChapterScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) =>  HomeScreen(),
         ChapterScreen.routeName: (context) => const ChapterScreen(),
+
         LectureScreen.routeName: (context) => const LectureScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         RegisterScreen.routeName: (context) => const RegisterScreen(),
