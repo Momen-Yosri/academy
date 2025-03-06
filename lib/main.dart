@@ -27,15 +27,15 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
       theme: ThemeData(
         textTheme: TextTheme(
-          titleLarge: GoogleFonts.amiriQuran(color: AppColors.whiteColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
-          titleMedium: GoogleFonts.amiriQuran(color: AppColors.primaryColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
-          titleSmall: GoogleFonts.amiriQuran(color: AppColors.textColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleLarge: GoogleFonts.amiri(color: AppColors.whiteColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleMedium: GoogleFonts.amiri(color: AppColors.primaryColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
+          titleSmall: GoogleFonts.amiri(color: AppColors.textColor, fontSize: 24.sp, fontWeight: FontWeight.bold),
         ),
         scaffoldBackgroundColor: AppColors.primaryBackgroundColor,
         appBarTheme: AppBarTheme(
           toolbarHeight: 70.sp,
           backgroundColor: AppColors.textColor,centerTitle: true,
-          titleTextStyle:GoogleFonts.amiriQuran(color: AppColors.blackColor, fontSize: 24.sp, fontWeight: FontWeight.bold) ,
+          titleTextStyle:GoogleFonts.amiri(color: AppColors.blackColor, fontSize: 24.sp, fontWeight: FontWeight.bold) ,
           shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         bottom: Radius.circular(24.r),

@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         children: [
          
           SizedBox(height: 16.h),
-          AdsSection(),
+          Container(child: AdsSection(),width: double.infinity,),
           SizedBox(height: 20.h),
           _buildTitle("الفصول الدراسية"),
           SizedBox(height: 10.h),

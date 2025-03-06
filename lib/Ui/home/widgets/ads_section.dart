@@ -15,7 +15,6 @@ final List<Widget> ads =[
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(items:ads, options: CarouselOptions(height:200.h ,
-    
     autoPlay: true, // Enable autoplay
     autoPlayInterval: Duration(seconds: 3), // Duration between slides
     autoPlayAnimationDuration: Duration(milliseconds: 800), // Transition speed
