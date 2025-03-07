@@ -2,11 +2,11 @@ import 'package:academy/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Ui/chapter_screen.dart';
-import 'Ui/home/home_screen.dart';
-import 'Ui/lecture_screen.dart';
-import 'Ui/login_screen.dart';
-import 'Ui/register_screen.dart';
+import 'presentation/chapter_screen.dart';
+import 'presentation/home/home_screen.dart';
+import 'presentation/lecture_screen.dart';
+import 'presentation/login_screen.dart';
+import 'presentation/register_screen.dart';
 // used Packages: utils for responsive , fonts for amiri 
 
 void main() {
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       initialRoute: ChapterScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) =>  HomeScreen(),
-        ChapterScreen.routeName: (context) => const ChapterScreen(),
+        ChapterScreen.routeName: (context) =>  ChapterScreen(),
 
         LectureScreen.routeName: (context) => const LectureScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
